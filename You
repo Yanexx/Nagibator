@@ -1,0 +1,24 @@
+import socket
+import threading
+import random
+
+from reverse_types import *
+from __future__ import with_statement
+
+botsLock = Lock()
+portsLock = Lock()
+proxyBots = []
+openPorts = []
+
+def BotExists(id):
+    with botsLock:
+        for el in proxyBots:
+            if id == el.id:
+                return True
+        return False
+
+def PortExists(port):
+    for el in openPorts:
+        if el == port:
+            return True
+    return False
