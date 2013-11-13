@@ -10,12 +10,7 @@ portsLock = Lock()
 proxyBots = []
 openPorts = []
 
-def BotExists(id):
-    with botsLock:
-        for el in proxyBots:
-            if id == el.id:
-                return True
-        return False
+
 
 def PortExists(port):
     for el in openPorts:
